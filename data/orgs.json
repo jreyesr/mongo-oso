@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "62bd11722c77337894d0e754"
+  },
+  "is_public": true,
+  "owner": {
+    "owners": [],
+    "company": "Apple",
+    "department": "Phones"
+  }
+},{
+  "_id": {
+    "$oid": "62bd11c82c77337894d0e756"
+  },
+  "is_public": false,
+  "owner": {
+    "owners": [
+      "me"
+    ],
+    "company": "ACME",
+    "department": "IT"
+  }
+},{
+  "_id": {
+    "$oid": "62bd11e02c77337894d0e758"
+  },
+  "is_public": false,
+  "owner": {
+    "owners": [],
+    "company": "ACME",
+    "department": "Audit"
+  }
+}]
