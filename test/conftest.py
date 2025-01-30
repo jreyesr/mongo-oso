@@ -1,6 +1,23 @@
+from collections import UserDict
+
 import pytest
 from oso import Oso
 from pytest_bdd import parsers, when, then, given
+
+
+class DDict[T](UserDict[str, T]):
+    def __init__(self, klass: type[T], field: str):
+        super().__init__()
+        self.klass = klass
+        self.field = field
+
+    def __getitem__(self, item: str):
+        if item in self.data:
+            return super().__getitem__(item)
+        else:
+            new_element: T = self.klass(**{self.field: item})  # create the new element
+            super().__setitem__(item, new_element)  # store on backing dict
+            return new_element  # and return
 
 
 @given(parsers.cfparse("the Polar file {fname}"), target_fixture="polar_file")
